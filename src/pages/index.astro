@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+  title="Lucas Rodrigues Pereira — Desenvolvedor Full Stack"
+  description="Desenvolvedor Full Stack com Java, Spring Boot, Angular, React, Next.js e React Native. Construindo aplicações web, mobile e APIs de ponta a ponta com microsserviços, PostgreSQL, MongoDB e Docker."
+>
+  <a
+    href="#conteudo"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-accent-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+  >
+    Pular para o conteúdo
+  </a>
+
+  <main id="conteudo">
+    <Header />
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Contact />
+    <Footer />
+  </main>
+</BaseLayout>

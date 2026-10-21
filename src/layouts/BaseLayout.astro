@@ -1,0 +1,86 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const fullTitle = `${title} | Lucas Rodrigues Pereira`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://rodriguesslucas.com");
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Lucas Rodrigues Pereira" />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Lucas Rodrigues Pereira" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content={new URL("/favicon.svg", Astro.site ?? "https://rodriguesslucas.com")} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Lucas Rodrigues Pereira",
+        jobTitle: "Desenvolvedor Full Stack",
+        description,
+        email: "mailto:rodrigues.lrp17@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+        addressLocality: "Fortaleza / Russas",
+        addressRegion: "CE",
+        addressCountry: "BR",
+        },
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Universidade Federal do Ceará (UFC)",
+        },
+        knowsAbout: [
+          "Java",
+          "Spring Boot",
+          "Angular",
+          "React",
+          "React Native",
+          "Next.js",
+          "PostgreSQL",
+          "MongoDB",
+          "Docker",
+          "Microsserviços",
+        ],
+        sameAs: [
+          "https://www.linkedin.com/in/rodriguesslucas/",
+          "https://github.com/RodriguessLucas",
+        ],
+      })}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

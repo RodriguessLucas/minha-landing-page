@@ -1,0 +1,67 @@
+---
+// Edite esta lista com as tecnologias que você realmente usa.
+const skillGroups = [
+  {
+    title: "Backend",
+    accent: "text-accent-400",
+    items: ["Java", "Spring Boot", "Spring Security", "APIs REST", "Microsserviços"],
+  },
+  {
+    title: "Frontend & Mobile",
+    accent: "text-accent-300",
+    items: ["Angular", "React", "Next.js", "React Native", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Bancos de Dados",
+    accent: "text-gold-400",
+    items: ["PostgreSQL", "MongoDB", "MySQL", "Modelagem", "Índices compostos"],
+  },
+  {
+    title: "Infraestrutura & DevOps",
+    accent: "text-accent-400",
+    items: ["Docker", "CI/CD", "GitHub Actions", "VPS", "Cloudflare"],
+  },
+  {
+    title: "Práticas",
+    accent: "text-accent-300",
+    items: ["Scrum", "Testes unitários", "OAuth 2FA", "SEO técnico", "PageSpeed"],
+  },
+  {
+    title: "Idiomas",
+    accent: "text-gold-400",
+    items: ["Português (nativo)", "Inglês (B1 · EF SET 44/100)"],
+  },
+];
+---
+
+<section id="competencias" class="py-24 px-6 bg-ink-800">
+  <div class="mx-auto max-w-7xl">
+    <div class="text-center mb-16">
+      <p class="text-sm font-medium text-accent-400 tracking-wider uppercase mb-4 animate-fade-up">O que eu domino</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4 animate-fade-up" style="animation-delay: 100ms;">
+        Competências & Tecnologias
+      </h2>
+      <div class="w-16 h-1 bg-accent-500 mx-auto animate-fade-up" style="animation-delay: 200ms;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        skillGroups.map((group, i) => (
+          <div
+            class="rounded-2xl border border-ink-700 bg-ink-900/60 p-8 hover:border-accent-500/40 transition-colors duration-300 animate-fade-up"
+            style={`animation-delay: ${300 + i * 100}ms;`}
+          >
+            <h3 class={`font-display text-xl font-bold ${group.accent} mb-6`}>{group.title}</h3>
+            <ul class="flex flex-wrap gap-2.5 list-none">
+              {group.items.map((skill) => (
+                <li class="px-3.5 py-2 text-sm font-medium text-gray-300 bg-ink-700/60 border border-ink-600 rounded-md hover:border-accent-500 hover:text-white transition-colors duration-200">
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
