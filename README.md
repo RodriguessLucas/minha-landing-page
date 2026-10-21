@@ -2,6 +2,9 @@
 
 > Landing page pessoal de portfólio, construída com [Astro](https://astro.build) + Tailwind CSS.
 > Tema escuro, geração estática, zero JavaScript de framework.
+>
+> **Este repositório é o resultado de um experimento:** usar IA **gratuita** como auxiliar
+> de estudo — e ver até onde dá.
 
 [![Astro](https://img.shields.io/badge/Astro-4.16-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
 [![Tailwind](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
@@ -11,22 +14,50 @@
 
 ## 🎯 Motivação
 
-Este projeto tem **três camadas de propósito**. A primeira é técnica, a segunda é
-pedagógica, e a terceira é a que realmente importa.
+### O ponto de partida: uma IA gratuita para estudar
+
+A motivação principal deste projeto **não era o site**. Era construir uma ferramenta de
+estudo gratuita.
+
+Eu estava querendo um auxiliar para:
+
+- **desafios de código** — LeetCode e afins;
+- **dúvidas em projetos escritos à mão** — aquelas horas em que a tela não anda e
+  você não sabe se o problema é o algoritmo, o tipo ou o ambiente.
+
+A pergunta era direta: **dá para usar IA de qualidade, de graça, como auxiliar diário de
+estudo?**
+
+O caso de uso real era: um dev júnior, estudando, sem assinatura de Claude ou ChatGPT
+paga, precisando de um segundo par de olhos para realmente entender o erro — não só
+para copiar a resposta.
 
 ---
 
-### 1. O experimento do 9Router
+### A busca: procurar ferramentas open source
 
-O ponto de partida foi **configurar o 9Router** e validar se é possível produzir um
-resultado profissional **usando apenas ferramentas gratuitas e modelos de IA gratuitos**.
+Para isso, fui atrás de **projetos open source** que fornecessem. Encontrei três
+roteadores de modelo (proxies que expõem vários modelos gratuitos atrás de uma única
+API compatível):
 
-> *Com roteamento de modelos gratuitos, contexto bem estruturado e prompts de
-> contextualização bem escritos, é possível entregar uma landing page de qualidade
-> profissional sem nenhum custo de assinatura?*
+| Ferramenta | Repo | Nota |
+|---|---|---|
+| **9router** | [`decolua/9router`](https://github.com/decolua/9router) | ★31k — proxy local, expõe modelos gratuitos (Claude Code, Codex, Cursor, Cline, Copilot, Antigravity) via API OpenAI-compatível |
+| **OmniRouter** | [`omnilabs-ai/OmniRouter`](https://github.com/omnilabs-ai/OmniRouter) | Um roteador para todo modelo — GLM, Qwen, DeepSeek e APIs custom |
+| *(o terceiro)* | — | Também open source, acabei não usando — o nome escapou |
 
-**A resposta deste repositório é sim.** E o que torna isso possível não é o modelo — é a
-**engenharia de contexto** em volta dele.
+**Escolhi o 9router** por **aparentar ser o mais simples**: um proxy local, um comando,
+pronto. Os outros pareciam exigir mais configuração para o mesmo benefício.
+
+---
+
+### O teste: esta landing page
+
+Para não ser apenas teoria, o jeito de validar a configuração foi **fazer algo real**:
+criar esta landing page do zero, com conteúdo de verdade, usando só o 9router e modelos
+gratuitos.
+
+O que o experimento provou:
 
 | Princípio | Na prática, neste repo |
 |---|---|
@@ -37,45 +68,34 @@ resultado profissional **usando apenas ferramentas gratuitas e modelos de IA gra
 | **O modelo é executor, não autor** | Decisões de arquitetura (estrutura de componentes, paleta, tokens) permaneceram humanas. A IA executou. |
 | **Zero dependências desnecessárias** | Sem libs de UI, sem framer-motion, sem icon-pack. Tailwind + SVG inline + ~30 linhas de JS para o menu mobile. |
 
-**Ferramentas gratuitas utilizadas:** Astro (MIT, 0 KB de JS), Tailwind CSS (MIT), modelos
-de IA via 9Router, Cloudflare Pages / GitHub Pages, e imagens otimizadas localmente com
-`sharp` via `astro:assets` (sem CDN externo).
+**Ferramentas gratuitas do stack inteiro:** Astro (MIT, 0 KB de JS), Tailwind CSS (MIT),
+modelos de IA via 9router, Cloudflare Pages / GitHub Pages, e imagens otimizadas
+localmente com `sharp` via `astro:assets` (sem CDN externo).
+
+**Veredito: sim.** IA gratuita + contexto bem organizado + prompt que explica o *porquê*
+= resultado pronto para produção. A qualidade do resultado depende menos do modelo e
+mais do **contexto que você entrega a ele**.
 
 ---
 
-### 2. Oficina de estudo: LeetCode e projetos pequenos
+### A régua: Akita e as horas de voo
 
-O objetivo **principal** não era a landing page — era o **processo**. Este repositório
-serve como uma **oficina permanente de estudo**:
-
-- **Espaço para LeetCode** — a estrutura de componentes, a disciplina de types e o
-  loop `check` → `build` → `commit` são exatamente o mesmo ciclo usado para resolver
-  problemas de algoritmo.
-- **Berçário para projetos pequenos** — tudo aqui nasce rápido, versionado e revisável.
-  Um projeto mínimo, do zero ao deploy, sem ruído.
-- **Cada PR é um exercício** — ler o diff, entender a decisão, refatorar.
-- **Documentação como parte do trabalho** — o README não é burocracia posterior; é
-  metade do aprendizado.
-
----
-
-### 3. A régua: Akita e as horas de voo
-
-Todo o projeto é regido por uma única régua, que vem de **Fábio Akita** (AkitaOnRails)
-e que ele repete exaustivamente em praticamente toda conversa sobre carreira:
+Ferramenta, não muleta. A régua que rege este projeto vem de **Fábio Akita**
+(AkitaOnRails), que repete exaustivamente uma mesma ideia em quase toda conversa sobre
+carreira:
 
 > **Não existe atalho.** O que separa um júnior de um pleno não é um curso, um
 > bootcamp ou um certificado — são **milhares de horas de contato com código real**.
 
-Três conceitos dele organizam a forma como a IA é usada aqui:
+Três conceitos dele organizam como a IA é usada aqui:
 
 | Conceito | O que significa | Como se aplica neste repo |
 |---|---|---|
 | **Horas de voo** | Analogia do piloto: não adianta fazer "ground school", é preciso pilotar | Centenas de linhas escritas, lidas e *entendidas* — não copiadas e esquecidas |
-| **Repertório e modelos mentais** | Ler código dos outros e encarar problema difícil é o que cria repertório | Ler o repositório inteiro antes de editar; enfrentar o bug de layout do `aria-expanded` invertido em vez de delegar |
+| **Repertório e modelos mentais** | Ler código dos outros e encarar problema difícil é o que cria repertório | Ler o repositório inteiro antes de editar; enfrentar o bug do `aria-expanded` invertido em vez de delegar |
 | **Bunda na cadeira** | Sentar, sofrer com o código, ler documentação, errar e consertar | O `astro check` roda a cada etapa. Erro não é escondido — é o sinal |
 
-**A consequência prática é a regra deste projeto:**
+**A regra prática deste projeto:**
 
 > **A IA é ferramenta, não muleta.**
 
@@ -84,14 +104,15 @@ Concretamente:
 1. **Nunca aceitar código que você não consegue explicar.** Se não dá para defender a
    linha em uma revisão, ela não entra.
 2. **Usar a IA para o tedium, escrever o substantivo.** Boilerplate, formatação,
-   repetição — IA. Decisão de arquitetura, modelagem de domínio, trade-offs —
-   humanos.
+   repetição — IA. Decisão de arquitetura, modelagem de domínio, trade-offs — humanos.
 3. **A IA explica, não substitui.** O prompt pede **o porquê**, não o o quê. A
    implementação é o exercício; a explicação vem depois.
-4. **Azar o tempo é o trabalho.** Tempo de leitura e escrita do código é o tempo de voo.
-   Ler e escrever rápido demais é o oposto de aprender.
+4. **O tempo no código é o trabalho.** Tempo de leitura e escrita é tempo de voo. Ler e
+   escrever rápido demais é o oposto de aprender.
 5. **Toolchain gratuito de propósito.** O stack inteiro é MIT justamente para que o
    custo nunca seja a barreira — a barreira é o tempo de cadeira.
+
+---
 
 ### Conclusão
 
@@ -99,9 +120,9 @@ O custo não é o obstáculo — a **organização do contexto** é. Um modelo g
 contexto fragmentado produz lixo; o mesmo modelo com o repositório lido, a tarefa
 quebrada e a validação automatizada produz código pronto para produção.
 
-Mas o custo *financeiro* ser zero é a parte fácil. A parte difícil — a que a IA
-**não** resolve por você — é a **hora de cadeira**. Ela escreve o primeiro rascunho;
-quem constrói o repertório é você, lendo, escrevendo, errando e consertando.
+Mas custo *financeiro* zero é a parte fácil. A parte difícil — a que a IA **não**
+resolve por você — é a **hora de cadeira**. Ela escreve o primeiro rascunho; quem constrói
+o repertório é você, lendo, escrevendo, errando e consertando.
 
 > *A ferramenta mais poderosa do mundo não substitui as horas de voo — ela só as
 > torna mais bem aproveitadas.*
@@ -213,5 +234,5 @@ MIT — use, fork e adapt freely. O conteúdo (textos, foto) é de autoria do ti
 ---
 
 <div align="center">
-  <sub>Feito com Astro + Tailwind, e muita experimentação com IA gratuita.</sub>
+  <sub>Feito com Astro + Tailwind, modelos de IA gratuitos via 9router, e muita hora de cadeira.</sub>
 </div>
