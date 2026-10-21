@@ -11,11 +11,15 @@
 
 ## 🎯 Motivação
 
-Este projeto nasceu como um **laboratório de configuração do 9Router** — a peça central foi
-validar se é possível produzir um resultado profissional **usando apenas ferramentas
-gratuitas e modelos de IA gratuitos**.
+Este projeto tem **três camadas de propósito**. A primeira é técnica, a segunda é
+pedagógica, e a terceira é a que realmente importa.
 
-A pergunta central do experimento:
+---
+
+### 1. O experimento do 9Router
+
+O ponto de partida foi **configurar o 9Router** e validar se é possível produzir um
+resultado profissional **usando apenas ferramentas gratuitas e modelos de IA gratuitos**.
 
 > *Com roteamento de modelos gratuitos, contexto bem estruturado e prompts de
 > contextualização bem escritos, é possível entregar uma landing page de qualidade
@@ -23,8 +27,6 @@ A pergunta central do experimento:
 
 **A resposta deste repositório é sim.** E o que torna isso possível não é o modelo — é a
 **engenharia de contexto** em volta dele.
-
-### O que realmente produz o resultado
 
 | Princípio | Na prática, neste repo |
 |---|---|
@@ -35,20 +37,74 @@ A pergunta central do experimento:
 | **O modelo é executor, não autor** | Decisões de arquitetura (estrutura de componentes, paleta, tokens) permaneceram humanas. A IA executou. |
 | **Zero dependências desnecessárias** | Sem libs de UI, sem framer-motion, sem icon-pack. Tailwind + SVG inline + ~30 linhas de JS para o menu mobile. |
 
-### Ferramentas gratuitas utilizadas
+**Ferramentas gratuitas utilizadas:** Astro (MIT, 0 KB de JS), Tailwind CSS (MIT), modelos
+de IA via 9Router, Cloudflare Pages / GitHub Pages, e imagens otimizadas localmente com
+`sharp` via `astro:assets` (sem CDN externo).
 
-- **Astro** — MIT, build estático, output 0 KB de JS (o único JS é o menu mobile)
-- **Tailwind CSS** — MIT
-- **Modelos de IA gratuitos** — via 9Router, com roteamento entre providers
-- **Hospedagem** — Cloudflare Pages / GitHub Pages (plano gratuito)
-- **Imagens** — otimizadas localmente com `sharp` via `astro:assets` (sem CDN externo)
+---
+
+### 2. Oficina de estudo: LeetCode e projetos pequenos
+
+O objetivo **principal** não era a landing page — era o **processo**. Este repositório
+serve como uma **oficina permanente de estudo**:
+
+- **Espaço para LeetCode** — a estrutura de componentes, a disciplina de types e o
+  loop `check` → `build` → `commit` são exatamente o mesmo ciclo usado para resolver
+  problemas de algoritmo.
+- **Berçário para projetos pequenos** — tudo aqui nasce rápido, versionado e revisável.
+  Um projeto mínimo, do zero ao deploy, sem ruído.
+- **Cada PR é um exercício** — ler o diff, entender a decisão, refatorar.
+- **Documentação como parte do trabalho** — o README não é burocracia posterior; é
+  metade do aprendizado.
+
+---
+
+### 3. A régua: Akita e as horas de voo
+
+Todo o projeto é regido por uma única régua, que vem de **Fábio Akita** (AkitaOnRails)
+e que ele repete exaustivamente em praticamente toda conversa sobre carreira:
+
+> **Não existe atalho.** O que separa um júnior de um pleno não é um curso, um
+> bootcamp ou um certificado — são **milhares de horas de contato com código real**.
+
+Três conceitos dele organizam a forma como a IA é usada aqui:
+
+| Conceito | O que significa | Como se aplica neste repo |
+|---|---|---|
+| **Horas de voo** | Analogia do piloto: não adianta fazer "ground school", é preciso pilotar | Centenas de linhas escritas, lidas e *entendidas* — não copiadas e esquecidas |
+| **Repertório e modelos mentais** | Ler código dos outros e encarar problema difícil é o que cria repertório | Ler o repositório inteiro antes de editar; enfrentar o bug de layout do `aria-expanded` invertido em vez de delegar |
+| **Bunda na cadeira** | Sentar, sofrer com o código, ler documentação, errar e consertar | O `astro check` roda a cada etapa. Erro não é escondido — é o sinal |
+
+**A consequência prática é a regra deste projeto:**
+
+> **A IA é ferramenta, não muleta.**
+
+Concretamente:
+
+1. **Nunca aceitar código que você não consegue explicar.** Se não dá para defender a
+   linha em uma revisão, ela não entra.
+2. **Usar a IA para o tedium, escrever o substantivo.** Boilerplate, formatação,
+   repetição — IA. Decisão de arquitetura, modelagem de domínio, trade-offs —
+   humanos.
+3. **A IA explica, não substitui.** O prompt pede **o porquê**, não o o quê. A
+   implementação é o exercício; a explicação vem depois.
+4. **Azar o tempo é o trabalho.** Tempo de leitura e escrita do código é o tempo de voo.
+   Ler e escrever rápido demais é o oposto de aprender.
+5. **Toolchain gratuito de propósito.** O stack inteiro é MIT justamente para que o
+   custo nunca seja a barreira — a barreira é o tempo de cadeira.
 
 ### Conclusão
 
 O custo não é o obstáculo — a **organização do contexto** é. Um modelo gratuito com
 contexto fragmentado produz lixo; o mesmo modelo com o repositório lido, a tarefa
-quebrada e a validação automatizada produz código pronto para produção. Custo zero é
-factível **com disciplina de engenharia**.
+quebrada e a validação automatizada produz código pronto para produção.
+
+Mas o custo *financeiro* ser zero é a parte fácil. A parte difícil — a que a IA
+**não** resolve por você — é a **hora de cadeira**. Ela escreve o primeiro rascunho;
+quem constrói o repertório é você, lendo, escrevendo, errando e consertando.
+
+> *A ferramenta mais poderosa do mundo não substitui as horas de voo — ela só as
+> torna mais bem aproveitadas.*
 
 ---
 
