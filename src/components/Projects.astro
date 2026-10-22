@@ -4,52 +4,58 @@ import capa from "../assets/capadeprojetosoftware.jpg";
 
 const projects = [
   {
-    title: "Aquatrat",
+    title: "DRC Consultoria (cliente sob NDA)",
     description:
-      "Sistema construído do zero com dashboard analítica em Angular, simuladores financeiros em tempo real, geração automatizada de PDFs corporativos e autenticação OAuth 2FA. Inclui testes unitários e de integração.",
-    alt: "Capa do projeto Aquatrat — dashboard analítico",
+      "Dashboard analítico em Angular com simuladores financeiros em tempo real, PDF corporativo automatizado e OAuth 2FA.",
+    alt: "Capa do projeto — dashboard",
     tags: ["Java", "Spring Boot", "Angular", "PostgreSQL"],
     link: "https://github.com/RodriguessLucas",
+    nda: true,
   },
   {
-    title: "Oftlessons",
+    title: "DRC Consultoria (cliente sob NDA)",
     description:
-      "Plataforma educacional gamificada desenvolvida ponta a ponta — mobile, web e backend — com publicação do app nas lojas Google Play e App Store e flashcards com repetição espaçada e IA.",
-    alt: "Capa do projeto Oftlessons — plataforma educacional",
+      "Plataforma educacional gamificada desenvolvida ponta a ponta — publicação no Google Play e App Store com flashcards e IA.",
+    alt: "Capa do projeto — plataforma educacional",
     tags: ["React Native", "Next.js", "Java", "MongoDB"],
     link: "https://github.com/RodriguessLucas",
+    nda: true,
   },
   {
-    title: "Plataforma Jurídica",
+    title: "DRC Consultoria (cliente sob NDA)",
     description:
-      "Gestão de escritórios de advocacia: colaboradores, parceiros, advogados e clientes PF/PJ, processos em Kanban com custos e histórico, módulo financeiro com apuração de lucro por cliente e relatórios em PDF personalizados.",
-    alt: "Capa da plataforma de gestão jurídica",
+      "Gestão de escritórios de advocacia, processos em Kanban, módulo financeiro e relatórios em PDF personalizados.",
+    alt: "Capa do projeto — gestão jurídica",
     tags: ["Java", "Spring Boot", "PostgreSQL", "React"],
     link: "https://github.com/RodriguessLucas",
+    nda: true,
   },
   {
-    title: "TrampoUp",
+    title: "DRC Consultoria (cliente sob NDA)",
     description:
-      "Marketplace de serviços SaaS com chat integrado, match por geolocalização e sistema de avaliações, operando com autenticação e dados relacionais em escala.",
-    alt: "Capa do marketplace TrampoUp",
+      "Marketplace SaaS com chat integrado, match por geolocalização e sistema de avaliações.",
+    alt: "Capa do projeto — marketplace",
     tags: ["Java", "Spring Boot", "Angular", "Docker"],
     link: "https://github.com/RodriguessLucas",
+    nda: true,
   },
   {
     title: "Aprova UFC",
     description:
-      "Plataforma de ensino e simulados para alunos de escola pública e baixa renda, com microsserviço de classificação automática de questões a partir do banco de dados do ENEM.",
-    alt: "Capa da plataforma Aprova UFC",
+      "Plataforma de ensino e simulados para escola pública e baixa renda, com classificação automática de questões via ENEM.",
+    alt: "Capa Aprova UFC",
     tags: ["React", "Spring Boot", "MySQL"],
     link: "https://github.com/RodriguessLucas",
+    nda: false,
   },
   {
     title: "Auxílio ao Aquarismo",
     description:
-      "SPA para simulação de ecossistemas aquáticos e validação de compatibilidade entre peixes, com motor de regras de negócio (pH, superlotação, predação) e cálculos em tempo real.",
-    alt: "Capa da plataforma de auxílio ao aquarismo",
+      "SPA para simulação de ecossistemas aquáticos e validação de compatibilidade entre peixes.",
+    alt: "Capa do Auxílio ao Aquarismo",
     tags: ["Spring Boot", "PostgreSQL", "Docker"],
     link: "https://github.com/RodriguessLucas",
+    nda: false,
   },
 ];
 ---
@@ -57,45 +63,65 @@ const projects = [
 <section id="projetos" class="py-24 px-6 bg-ink-900">
   <div class="mx-auto max-w-7xl">
     <div class="text-center mb-16">
-      <p class="text-sm font-medium text-accent-400 tracking-wider uppercase mb-4 animate-fade-up">Portfólio</p>
+      <p class="text-sm font-medium text-accent-400 tracking-wider uppercase mb-4 animate-fade-up">
+        Portfólio
+      </p>
       <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4 animate-fade-up" style="animation-delay: 100ms;">
         Projetos em Destaque
       </h2>
       <p class="text-gray-400 max-w-2xl mx-auto animate-fade-up" style="animation-delay: 150ms;">
-        Seleção de trabalhos que demonstram minha abordagem técnica e atenção aos detalhes.
+        Projetos que demonstram minha abordagem técnica e atenção aos detalhes.
       </p>
       <div class="w-16 h-1 bg-accent-500 mx-auto mt-6 animate-fade-up" style="animation-delay: 200ms;"></div>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
-      {
-        projects.map((project, i) => (
-          <article class="group rounded-2xl overflow-hidden border border-ink-700 bg-ink-800/50 hover:border-accent-500/50 transition-colors duration-300 animate-fade-up" style={`animation-delay: ${300 + i * 100}ms;`}>
-            <div class="relative aspect-video overflow-hidden bg-ink-700">
-              <Image
-                src={capa}
-                alt={project.alt}
-                widths={[400, 800]}
-                sizes="(max-width: 768px) 90vw, 560px"
-                loading="lazy"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-transparent to-transparent opacity-70" aria-hidden="true" />
+      {projects.map((project, i) => (
+        <article class="group rounded-2xl overflow-hidden border border-ink-700 bg-ink-800/50 hover:border-accent-500/50 transition-colors duration-300 animate-fade-up" style={`animation-delay: ${300 + i * 100}ms;`}>
+          {project.nda && (
+            <div class="absolute top-4 right-4 z-10">
+              <span class="px-3 py-1 text-xs font-medium text-ink-900 bg-accent-500/80 border border-accent-500/30 rounded-full backdrop-blur">
+                🔒 Sob NDA
+              </span>
             </div>
-            <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-3 group-hover:text-accent-400 transition-colors duration-200">
-                {project.title}
-              </h3>
-              <p class="text-gray-400 text-sm leading-relaxed mb-5">{project.description}</p>
-              <ul class="flex flex-wrap gap-2 list-none">
-                {project.tags.map((tag) => (
-                  <li class="px-2.5 py-1 text-xs font-medium text-accent-400 bg-accent-500/10 border border-accent-500/25 rounded">{tag}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))
-      }
+          )}
+          <div class="relative aspect-video overflow-hidden bg-ink-700">
+            <Image
+              src={capa}
+              alt={project.alt}
+              widths={[400, 800]}
+              sizes="(max-width: 768px) 90vw, 560px"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-transparent to-transparent opacity-50" aria-hidden="true" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-3 group-hover:text-accent-400 transition-colors duration-200">
+              {project.title}
+            </h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-5">{project.description}</p>
+            <ul class="flex flex-wrap gap-2 list-none">
+              {project.tags.map((tag) => (
+                <li class="px-2.5 py-1 text-xs font-medium text-accent-400 bg-accent-500/10 border border-accent-500/25 rounded">{tag}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center animate-fade-up" style="animation-delay: 600ms;">
+      <a
+        href="/assets/docs/CV_Lucas_Rodrigues_Pereira_v2_pt.pdf"
+        download="Curriculo-Lucas-Rodrigues-Pereira.pdf"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-accent-500 text-accent-400 font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m4 4V3m4 4v4m1 10V9m4 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m8 0a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6a2 2 0 012-2m0 0V9a2 2 0 012-2h4a2 2 0 012 2v4a2 2 0 01-2 2m0 0a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4a2 2 0 012 2v2z" />
+          Baixar CV
+        </svg>
+      </a>
     </div>
 
     <div class="mt-12 text-center animate-fade-up" style="animation-delay: 600ms;">
@@ -106,7 +132,9 @@ const projects = [
         class="inline-flex items-center gap-2 px-6 py-3 border border-ink-600 hover:border-accent-500 text-gray-300 hover:text-white font-medium rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900"
       >
         Ver mais no GitHub
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
       </a>
     </div>
   </div>
